@@ -20,20 +20,6 @@
                         <form action="{% url 'rooms' %}" method="POST">
                             {% csrf_token %}
                             <div class="row">
-                                <div class="col-md-6 mb-3 mb-lg-0 col-lg-2">
-                                    <label for="checkin">Check In</label>
-                                    <div class="field-icon-wrap">
-                                        <div class="icon"><span class="icon-calendar"></span></div>
-                                        <input type="text" id="checkin_date" class="form-control" name="check_in">
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3 mb-lg-0 col-lg-2">
-                                    <label for="checkin">Check Out</label>
-                                    <div class="field-icon-wrap">
-                                        <div class="icon"><span class="icon-calendar"></span></div>
-                                        <input type="text" id="checkout_date" class="form-control" name="check_out">
-                                    </div>
-                                </div>
                                 <div class="col-md-6 mb-3 mb-md-0 col-lg-6">
                                     <div class="row">
                                         <div class="col-md-4 mb-3 mb-md-0">
@@ -86,7 +72,7 @@
                                         <li><strong>Bed Type:</strong> {{ object.room_type_id.room_type }} bed</li>
                                         <li><strong>Status: </strong>{{ object.room_status_id.status }}</li>
                                     </ul>
-                                    <p><a href="#" class="btn btn-primary py-3 px-5">Read More</a></p>
+                                    <p><a href="{% url 'booking' object.pk %}" class="btn btn-primary py-3 px-5">Book Room</a></p>
                                 </div>
                             </div>
                         </div>
@@ -140,6 +126,7 @@
                                         <li><strong>Status:</strong> {{ object.room_status_id.status }}</li>
                                         <li><strong>Bed Type:</strong> {{ object.room_type_id.room_type }} bed</li>
                                     </ul>
+                                    <p><a href="{% url 'booking' object.pk %}" class="btn btn-primary py-2 px-5 mt-3">Book Room</a></p>
                                 </div>
                             </div>
                         </div>
