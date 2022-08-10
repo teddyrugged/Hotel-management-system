@@ -26,7 +26,7 @@ from django.core.management.utils import get_random_secret_key
 SECRET_KEY = config("SECRET_KEY1", default=get_random_secret_key(), cast=str)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG1', cast = bool)
 
 ALLOWED_HOSTS = []
 
